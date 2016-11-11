@@ -1,4 +1,4 @@
-﻿:name: Barcodes Graph
+﻿:name: Barcodes
 :parent1: link:http://www.infragistics.com/help/wpf/[WPF]
 :parent2: link:http://www.infragistics.com/help/winforms/[WinForms]
 
