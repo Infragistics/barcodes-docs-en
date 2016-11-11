@@ -1,0 +1,119 @@
+﻿////
+|metadata|
+{
+    "name": "xambarcode-adding-xambarcode-using-xaml-code",
+    "controlName": ["{BarcodesName}"],
+    "tags": [],
+    "guid": "be6fb2b0-dad7-4479-ad3e-df8b19c72c09",
+    "buildFlags": ["xaml"],
+    "createdOn": "2015-09-23T20:39:17.4464668Z"
+}
+|metadata|
+////
+
+= Adding Barcode Using XAML Code
+
+== Before You Begin
+
+This topic is designed to get you up and running as quickly as possible by describing the basic steps required for adding a {Barcode128Name}™ control to your application using XAML.
+
+== What You Will Accomplish
+
+You will add a basic {Barcode128Name} control to your application.
+
+== Follow these Steps
+
+[start=1]
+. Create a {PlatformName} application.
+[start=2]
+. In the Solution Explorer, add the following references to your project:
+
+ifdef::wpf,win-universal[]
+
+** {ApiPlatform}v{ProductVersion}.dll
+** {ApiPlatform}DataVisualization.v{ProductVersion}.dll
+** {ApiPlatform}Controls.Barcodes.v{ProductVersion}.dll
+** {ApiPlatform}Encoding.v{ProductVersion}.dll (only for QR Code)
+
+endif::wpf,win-universal[]
+ 
+ifdef::xamarin[]
+
+In shared project:
+
+** {ApiPlatform}dll
+** {ApiPlatform}Controls.Barcodes.dll
+
+In Android project:
+
+** {ApiPlatform}Android.dll
+** {ApiPlatform}Controls.Barcodes.Android.dll
+
+In iOS project:
+
+** {ApiPlatform}iOS.dll
+** {ApiPlatform}Controls.Barcodes.iOS.dll
+
+endif::xamarin[]
+
+[start=3]
+. Add an XML namespace declaration for {Barcode128Name}:
+
+
+*In XAML:*
+
+ifdef::wpf,win-universal[]
+----
+xmlns:ig="http://schemas.infragistics.com/xaml"
+----
+endif::wpf,win-universal[]
+
+
+ifdef::xamarin[]
+----
+xmlns:ig="clr-namespace:Infragistics.XF.Controls;assembly=InfragisticsXF.Controls.Barcodes"
+----
+endif::xamarin[]
+
+[start=4]
+. Choose a barcode symbology, and add an instance to the default Grid layout panel named LayoutRoot.
+
+*Note:* Each barcode symbology is a separate control.
+
+*Supported Symbology Types:*
+
+* link:xambarcode-configuring-code128.html[Configuring Code 128]
+* link:xambarcode-configuring-qr-code.html[Configuring QR Code]
+
+ifdef::wpf[]
+* link:xambarcode-xamcode39barcode.html[Code 39]
+* link:xambarcode-xameanupcbarcode.html[Ean/Upc]
+* link:xambarcode-xaminterleaved2of5barcode.html[Interleaved 2 Of 5]
+* link:xambarcode-xamgs1databarbarcode.html[GS1 DataBar]
+* link:xambarcode-xamintelligentmailbarcode.html[Intelligent Mail]
+* link:xambarcode-xamroyalmailbarcode.html[Royal Mail]
+* link:xambarcode-xampdf417barcode.html[PDF 417]
+* link:xambarcode-xammaxicodebarcode.html[Maxi Code]
+endif::wpf[]
+
+*In XAML:*
+
+----
+<Grid x:Name="LayoutRoot">
+    <ig:{Barcode128Name} x:Name="Barcode" />
+</Grid>
+----
+
+[start=5]
+. Assign a value to the {Barcode128Name} control’s Data property
+
+*In XAML:*
+
+----
+<ig:{Barcode128Name} x:Name="Barcode" Data="Code128" />
+----
+
+[start=6]
+. Save and run your application.
+
+image::images/xamBarcode_Adding_Code128_01.png[]

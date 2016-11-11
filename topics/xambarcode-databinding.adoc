@@ -1,0 +1,181 @@
+﻿////
+|metadata|
+{
+    "name": "xambarcode-databinding",
+    "controlName": ["{BarcodesName}"],
+    "tags": [],
+    "guid": "89ea1d13-ec82-4865-a073-d0a702850d34",
+    "buildFlags": ["XAML"],
+    "createdOn": "2015-09-23T20:39:08.1425044Z"
+}
+|metadata|
+////
+
+= Binding Data
+
+== Before You Begin
+
+The  link:{BarcodesLink}.{BarcodesRoot}.html[{Data}] property of the {BarcodesName}™ family of controls, is what you use to assign the value that you wish to be encoded. The Data property is a dependency property and you can use data binding to set its value.
+
+== What You Will Accomplish
+
+You will bind data to the link:{BarcodesLink}.{BarcodesRoot}.html[{Data}] property of the {Barcode128Name} control.
+
+== Follow these Steps
+
+[start=1]
+. Add a {Barcode128Name} control to your page. For information on this, refer to one of these topics:
+
+* link:xambarcode-adding-xambarcode-using-xaml.html[Adding Barcode Using XAML Code] 
+* link:xambarcode-adding-barcode-in-code-behind.html[Adding Barcode In Code-Behind] 
+
+[start=2]
+. Create a class named BarcodeData that implements the INotifyPropertyChanged interface and add a Data property, which will provide notification if its value has changed:
+
+ifdef::xaml[]
+
+*In Visual Basic:*
+
+----
+Imports System.ComponentModel
+
+Public Class BarcodeData Implements INotifyPropertyChanged
+    Public Sub New()
+        Data = String.Empty
+    End Sub
+    Private barcodeData As String
+    Property Data() As String
+        Get
+             Return barcodeData
+        End Get
+        Set(ByVal value As String)
+             barcodeData = value
+             RaisePropertyChanged()
+        End Set
+    End Property
+    Public Event PropertyChanged(ByVal sender As Object, ByVal e
+        As PropertyChangedEventArgs) Implements
+              INotifyPropertyChanged.PropertyChanged
+    Private Sub RaisePropertyChanged()
+        RaiseEvent PropertyChanged(Me, New
+                PropertyChangedEventArgs("Data"))
+    End Sub
+End Class
+----
+
+endif::xaml[]
+
+ifdef::xaml[]
+
+*In C#:*
+
+----
+using System.ComponentModel;
+
+public class BarcodeData : INotifyPropertyChanged
+{
+    public BarcodeData()
+    {
+        Data = string.Empty;
+    }
+    private string barcodeData;
+    public string Data
+    {
+        get
+        {
+            return barcodeData;
+        }
+        set
+        {
+            barcodeData = value;
+            RaisePropertyChanged();
+        }
+    }
+    public event PropertyChangedEventHandler PropertyChanged;
+    private void RaisePropertyChanged()
+    {
+        if (PropertyChanged != null)
+        {
+            PropertyChanged(this,
+            new PropertyChangedEventArgs("Data"));
+        }
+    }
+}
+----
+
+endif::xaml[]
+
+[start=3]
+. Assign an instance of the BarcodeData class to the {Barcode128Name} control’s DataContext property:
+
+ifdef::xaml[]
+
+*In Visual Basic:*
+
+----
+Dim barcodeData As New BarcodeData
+Barcode.DataContext = barcodeData
+----
+
+endif::xaml[]
+
+ifdef::xaml[]
+
+*In C#:*
+
+----
+var barcodeData = new BarcodeData();
+Barcode.DataContext = barcodeData;
+----
+
+endif::xaml[]
+
+[start=4]
+. Bind the control to the property:
+
+ifdef::xaml[]
+
+*In XAML:*
+
+----
+<ig:{Barcode128Name} x:Name="Barcode" Data="{Binding Data}" />
+----
+
+endif::xaml[]
+
+[start=5]
+. Assign a value to the BarcodeData instance’s Data property:
+
+ifdef::xaml[]
+
+*In Visual Basic:*
+
+----
+barcodeData.Data = "324654"
+----
+
+endif::xaml[]
+
+ifdef::xaml[]
+
+*In C#:*
+
+----
+barcodeData.Data = "324654";
+----
+
+endif::xaml[]
+
+.Note:
+[NOTE]
+====
+This example assigns a hard-coded value to the control. However, in a real-world application the value can be assigned from a database, some application logic, or from a barcode scanner. Regardless of where you get the value from, this example shows how the value is assigned to the control.
+====
+
+Whenever the Data property of the BarcodeData class changes the control will show the change.
+[start=6]
+. Save and run your application.
+
+____
+image::images/xamBarcode_DataBinding_01.png[]
+____
