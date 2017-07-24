@@ -30,10 +30,10 @@ You will add a basic {Barcode128Name} control to your  pick:[xaml="page"]  pick:
 
 ifdef::wpf,win-universal[]
 
-** {ApiPlatform}v{ProductVersion}.dll
-** {ApiPlatform}DataVisualization.v{ProductVersion}.dll
-** {ApiPlatform}Controls.Barcodes.v{ProductVersion}.dll
-** {ApiPlatform}Encoding.v{ProductVersion}.dll (only for QR Code)
+** {ApiPlatform}{ApiVersion}.dll
+** {ApiPlatform}DataVisualization.{ApiVersion}.dll
+** {ApiPlatform}Controls.Barcodes.{ApiVersion}.dll
+** {ApiPlatform}Encoding.{ApiVersion}.dll (only for QR Code)
 
 endif::wpf,win-universal[]
  
@@ -64,9 +64,9 @@ ifdef::android[]
 endif::android[]
 
 ifdef::win-forms[]
-** Infragistics4.Win.DataVisualization.Barcode
-** Infragistics4.Win.DataVisualization.Shared
-** Infragistics4.Win.Portable.Core
+** {ApiPlatform}Win.DataVisualization.Barcode
+** {ApiPlatform}Win.DataVisualization.Shared
+** {ApiPlatform}Win.Portable.Core
 
 endif::win-forms[]
 

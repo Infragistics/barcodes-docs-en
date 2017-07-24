@@ -30,10 +30,10 @@ You will add a basic {Barcode128Name} control to your application.
 
 ifdef::wpf,win-universal[]
 
-** {ApiPlatform}v{ProductVersion}.dll
-** {ApiPlatform}DataVisualization.v{ProductVersion}.dll
-** {ApiPlatform}Controls.Barcodes.v{ProductVersion}.dll
-** {ApiPlatform}Encoding.v{ProductVersion}.dll (only for QR Code)
+** {ApiPlatform}{ApiVersion}.dll
+** {ApiPlatform}DataVisualization.{ApiVersion}.dll
+** {ApiPlatform}Controls.Barcodes.{ApiVersion}.dll
+** {ApiPlatform}Encoding.{ApiVersion}.dll (only for QR Code)
 
 endif::wpf,win-universal[]
  

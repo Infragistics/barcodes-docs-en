@@ -17,7 +17,7 @@ ifdef::xaml[]
 .Note:
 [NOTE]
 ====
-When working with {BarcodeQRName}™ be sure to include the following assembly to your project: {ApiPlatform}Encoding.v{ProductVersion}.dll
+When working with {BarcodeQRName}™ be sure to include the following assembly to your project: {ApiPlatform}Encoding.{ApiVersion}.dll
 ====
 endif::xaml[]
 
